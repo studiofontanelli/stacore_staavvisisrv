@@ -45,6 +45,7 @@ public class AvvisiAccertamentoHelperImpl extends CommonHelperImpl implements Av
 	private DataDictionary dataDictionary;
 	
 	@Autowired
+<<<<<<< HEAD
 	private AvvisoAccertamentoAdapter avvisoAccertamentoAdapter;
 	
 	@Autowired
@@ -102,6 +103,65 @@ public class AvvisiAccertamentoHelperImpl extends CommonHelperImpl implements Av
 			if(searchParams.getCodiceStatoAccertamento()!=null &&
 			   !dataDictionary.getStatoAccertamentoDictionary()
 					   		  .containsKey(searchParams.getCodiceStatoAccertamento())) 
+=======
+	AvvisoAccertamentoAdapter avvisoAccertamentoAdapter;
+	
+	@Autowired
+	RicercaAvvisoAccertamentoAdapter ricercaAvvisoAccertamentoAdapter;
+	
+	@PostConstruct
+	public void init() {
+		final String method = "init";
+		try {
+			Tracer.debug(LOG, getClass().getName(), method, "called");
+		}
+		catch(Exception e) {
+			Tracer.error(LOG, getClass().getName(), method, "Exception "  +e);
+		}
+		finally {
+			//TO DO
+		}
+	}
+
+	@Override
+	public List<AvvisoAccertamentoVO> findAvvisiAccertamento(RicercaAvvisoAccertamentoVO searchParams)	throws HelperException, NoDataFoundException, ValidationException {
+		final String method = "findAvvisiAccertamento";
+		
+		List<AvvisoAccertamentoVO> result = new ArrayList<>();
+		List<ErrorDetailDto> errorDetails = new ArrayList<>();
+		Tracer.debug(LOG, getClass().getName(), method, "START");
+		
+		try {
+			
+			//*****************************************************************
+			//Controlli formali
+			//*****************************************************************
+			if(searchParams==null){
+				ErrorDetailDto errorDetailDto = new ErrorDetailDto("searchParams", "parametro non deve essere vuoto");
+				errorDetails.add(errorDetailDto);				
+			}
+			if(searchParams.getIdentificativoFiscale() == null &&
+			   searchParams.getIdentificativoUtente() == null &&
+			   searchParams.getProtocollo() == null &&
+			   searchParams.getScadenza() == null &&
+			   searchParams.getTarga() == null && 
+			   searchParams.getTipoVeicolo() == null &&
+			   searchParams.getValidta() == null)
+			{
+				ErrorDetailDto errorDetailDto = new ErrorDetailDto("searchParams", "almeno uno dei parametri di ricerca non deve essere vuoto");
+				errorDetails.add(errorDetailDto);				
+			}
+			if(searchParams.getTipoVeicolo()!=null &&
+			   !dataDictionary.getTipoVeicoloDictionary()
+			   				  .containsKey(searchParams.getTipoVeicolo())) 
+			{				
+					ErrorDetailDto errorDetailDto = new ErrorDetailDto("Tipo Veicolo", "valore non presente del dictionary");
+					errorDetails.add(errorDetailDto);				
+			}
+			if(searchParams.getStatoAccertamento()!=null &&
+			   !dataDictionary.getStatoAccertamentoDictionary()
+					   		  .containsKey(searchParams.getStatoAccertamento())) 
+>>>>>>> branch 'main' of https://github.com/studiofontanelli/stacore_staavvisisrv.git
 			{				
 					ErrorDetailDto errorDetailDto = new ErrorDetailDto("Stato Accertamento", "valore non presente del dictionary");
 					errorDetails.add(errorDetailDto);				

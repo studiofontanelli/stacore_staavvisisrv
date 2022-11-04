@@ -99,6 +99,7 @@ definitions:
         targa:
            type: string
            description: targa veicolo
+<<<<<<< HEAD
         codice_tipo_veicolo:
            type: string
            description: codice tipo veicolo          
@@ -117,6 +118,26 @@ definitions:
         codice_stato_accertamento:
            type: string
            description: codice stato accertamento
+=======
+        tipo_veicolo:
+           type: string
+           description: tipo veicolo          
+        scadenza:
+           type: string           
+        validta:
+           type: integer
+           format: int32
+           description: validita
+        anno_accertamento:
+           type: integer
+           format: int32
+           description: anno accertamento
+        identificativo_utente:
+           type: string
+        stato_accertamento:
+           type: string
+           description: stato accertamento
+>>>>>>> branch 'main' of https://github.com/studiofontanelli/stacore_staavvisisrv.git
   
   AvvisoAccertamentoVO:
      type: object
