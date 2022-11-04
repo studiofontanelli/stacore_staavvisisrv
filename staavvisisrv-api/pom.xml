@@ -189,21 +189,6 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>it.csi.stacore</groupId>
-			<artifactId>staonsrv-staonsrv-client</artifactId>
-			<version>${staonsrv-staonsrv.client}</version>
-			<scope>compile</scope>
-		</dependency>
-		
-		<dependency>
-			<groupId>it.csi.stacore</groupId>
-			<artifactId>staonsrv-staonutil-client</artifactId>
-			<version>${staonsrv-staonutil.client}</version>
-			<scope>compile</scope>
-		</dependency>
-		
-		
-		<dependency>
 			<groupId>org.apache.axis</groupId>
 			<artifactId>axis-jaxrpc</artifactId>
 			<version>${axis.version}</version>

@@ -9,6 +9,8 @@ import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import it.csi.stacore.staavvisisrv.integration.bo.common.Divisa;
+import it.csi.stacore.staavvisisrv.integration.bo.common.Valuta;
 import it.csi.stacore.staavvisisrv.util.Constants;
 
 
@@ -255,6 +257,26 @@ public class TauResultSet {
 		return getResultSet().getTimestamp(columnName);
 	}
 
+	public Valuta getValuta(Divisa divisa, String columnName)
+			throws SQLException {
+		Valuta  result              = null;
+		Integer importoNormalizzato = this.getInteger(columnName);
+
+		if((divisa != null) && (importoNormalizzato != null)) {
+			result =
+					new Valuta(
+							divisa,
+							new BigDecimal(importoNormalizzato.intValue()).divide(
+									new BigDecimal(100),
+									2,
+									BigDecimal.ROUND_UNNECESSARY
+									)
+							);
+		}
+
+		return result;
+	}
+
 	/*
 	public String getCO2(String columnName) throws SQLException {
 		String result = null;
@@ -267,6 +289,6 @@ public class TauResultSet {
 
 		return result;
 	}
-	*/
+	 */
 
 }
