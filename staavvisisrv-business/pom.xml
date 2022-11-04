@@ -86,12 +86,7 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>it.csi.stacore</groupId>
-			<artifactId>staonsrv-staonsrv-client</artifactId>
-			<version>${staonsrv-staonsrv.client}</version>
-			<scope>provided</scope>
-		</dependency>
+		
 		
 		<!-- EHCache -->
        	<dependency>

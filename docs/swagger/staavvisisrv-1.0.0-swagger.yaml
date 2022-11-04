@@ -1,0 +1,613 @@
+swagger: '2.0'
+info:
+  description: API componente staavvisisrv
+  version: 1.0.0
+  title: STAAVVISISRV
+  contact:
+    email: andrea.fontanelli@eng.it
+    
+# tags are used for organizing operations
+tags:
+- name: test
+  description: test resources
+- name: avvisi-accertamento
+  description: gestione avvisi accertamento
+    
+# Added by API Auto Mocking Plugin
+host: virtserver.swaggerhub.com
+# basePath: /studiofontanelli/staavvisisrv/1.0.0
+
+# schemes:
+#  - http
+
+paths:
+  /test/resources:
+    get:
+      tags:
+        - test
+      summary: Test resources
+      description: Effettua il test dei servizi richiamati
+      operationId: testResources
+      produces:
+      - application/json
+      responses:
+        200:
+          schema:
+            $ref: '#/definitions/GenericResponse'
+          description: OK
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/ErrorDto'
+  
+  /avvisi-accertamento/_search:
+    post:
+      tags:
+        - avvisi-accertamento
+      summary: Avvisi Accertamento 
+      description: carica lista accertamenti
+      operationId: findAvvisiAccertamento
+      consumes:
+        - application/json
+      produces:
+      - application/json
+      parameters:
+        - in: body
+          name: search_params
+          schema:
+             $ref: '#/definitions/RicercaAvvisoAccertamentoVO'          
+          required: true
+      responses:
+        200:
+          schema:
+            $ref: '#/definitions/AvvisoAccertamentoVO'
+          description: OK
+        500:
+          description: Internal server error
+          schema:
+            $ref: '#/definitions/ErrorDto'
+  
+definitions:
+  
+  
+  TipoVeicolo:
+    type: string    
+    enum: &TipoVeicolo 
+       - AUTOVEICOLO               # -> "A"
+       - MOTOVEICOLO               # -> "M"
+       - RIMORCHIO                 # -> "R"
+       - CICLOMOTORE               # -> "C"
+       - QUADRICICLO_LEGGERO       # -> "Q"
+       - TARGA_PROVA_AUTOVEICOLO   # -> "PA"
+       - TARGA_PROVA_MOTOVEICOLO   # -> "PM"
+       - TARGA_PROVA_RIMORCHIO     # -> "PR"
+       - TARGA_PROVA_CICLOMOTORE   # -> "PC"
+       - TARGA_PROVA_QUADRICICLO_LEGGERO   # -> "PQ"
+       - TARGA_PROVA_AUTOSCAFO             # -> "PS"
+       - TARGA_PROVA_MOTORE_FUORIBORDO     # -> "MF"
+  
+  RicercaAvvisoAccertamentoVO:
+     type: object
+     description: fields applicati nella ricerca
+     properties:             
+        identificativo_fiscale:
+           type: string
+           description: codice fiscale
+        protocollo:
+           type: string
+           description: numero protocollo
+        targa:
+           type: string
+           description: targa veicolo
+        codice_tipo_veicolo:
+           type: string
+           description: codice tipo veicolo          
+        scadenza:
+           type: string           
+        validta:
+           type: integer
+           format: int32
+           description: validita
+        anno_accertamento:
+           type: integer
+           format: int32
+           description: anno accertamento
+        identificativo_utente:
+           type: string
+        codice_stato_accertamento:
+           type: string
+           description: codice stato accertamento
+  
+  AvvisoAccertamentoVO:
+     type: object
+     description: accertamento
+     properties:             
+        id_avviso_accertamento:
+           type: integer
+           format: int64
+        id_pratica:
+           type: integer
+           format: int64
+        anno_accertamento:
+           type: integer
+           format: int32
+        tipo_irreg_accertamento:
+           type: object
+           $ref: '#/definitions/TipoIrregAccertamentoVO'
+        id_posizione:
+           type: integer
+           format: int64
+        causale_chiusura:
+           type: object
+           $ref: '#/definitions/CausaleChiusuraVO'
+        sotto_causale_chiusura:
+           type: object
+           $ref: '#/definitions/SottoCausaleChiusuraVO'
+        tipo_periodicita:
+           type: object
+           $ref: '#/definitions/TipoPeriodicitaVO'
+        avviso_accertamento_ente:
+           type: object
+           $ref: '#/definitions/AvvisoAccertamentoEnteVO'
+        numero_protocollo:
+           type: string
+        data_invio_ultimo_flusso:
+           type: string
+           format: date
+        data_notifica:
+           type: string
+           format: date
+        irreg_accertamento:
+           type: string
+        periodicita:
+           type: string
+        scadenza:
+           type: integer
+           format: int32
+        validita:
+           type: integer
+           format: int32
+        data_pag_vers_insuff:
+           type: string
+           format: date
+        prop_tipo_persona:
+           type: string
+        prop_cod_fiscale:
+           type: string
+        prop_nome:
+           type: string
+        prop_cognome:
+           type: string
+        prop_denominazione:
+           type: string
+        prop_data_nascita:
+           type: string
+           format: date
+        prop_comune_nascita:
+           type: string
+        prop_comune_spedizione:
+           type: string
+        prop_stato_estero_nascita:
+           type: string
+        prop_prov_spedizione:
+           type: string
+        prop_sesso:
+           type: string
+        prop_ind_spedizione_nom:
+           type: string
+        prop_sedime:
+           type: string
+        prop_civico:
+           type: string
+        prop_cap:
+           type: string
+        veic_targa:
+           type: string
+        veic_tipo_veicolo:
+           type: object
+           $ref: '#/definitions/TipoVeicoloVO'
+        veic_desc_tipo_veicolo:
+           type: string
+        veic_data_immatric:
+           type: string
+           format: date
+        veic_id_destinazione:
+           type: integer
+           format: int64
+        veic_desc_destinazione:
+           type: string
+        veic_id_uso:
+           type: integer
+           format: int64
+        veic_id_tipo_riduzione:
+           type: integer
+           format: int64
+        veic_desc_uso:
+           type: string
+        veic_id_alimentazione:
+           type: integer
+           format: int64
+        veic_desc_alimentazione:
+           type: string
+        veic_flag_ecodiesel:
+           type: string
+        id_stato_pratica:
+           type: integer
+           format: int64
+        stato_note:
+           type: string
+        stato_data_regolarizzazione:
+           type: string
+           format: date
+        stato_desc_causale_chiusura:
+           type: string
+        stato_desc_sotto_causale_chiusura:
+           type: string
+        stato_data1_chiusura:
+           type: string
+           format: date
+        stato_data2_chiusura:
+           type: string
+           format: date
+        versato_tassa:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        versato_sanzioni:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        versato_interesse:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        versato_totale:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        dovuto_tassa:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        dovuto_sanzioni:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        dovuto_interesse:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        dovuto_totale:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        dovuto_importo_compensato:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        dovuto_semestri_interessi:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        ruolo_data_invio_flusso:
+           type: string
+           format: date
+        calc_tassa_nei_termini:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        ruolo_semestri:
+           type: integer
+           format: int32
+        ruolo_tassa:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        ruolo_sanzioni:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        ruolo_interesse:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        ruolo_totale:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        gms_id_soggetto:
+           type: integer
+           format: int64
+        identificativo_utente:
+           type: string
+        data_riferimento_calcolo:
+           type: string
+           format: date
+        ct_codice_regola:
+           type: string
+        #La mappa sembra non utilizzata in STAON
+        #Map mappaTipoAlgoritmoDatiTecnici = new HashMap();
+        numero_posti:
+           type: integer
+           format: int32
+        numero_assi:
+           type: integer
+           format: int32
+        veic_KW:
+           type: string
+        veic_massa_complessiva:
+           type: string
+        veic_portata:
+           type: string
+        categoria_euro:
+           type: string
+        veic_desc_riduzione:
+           type: string
+        veic_tassa_no_riduz:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        veic_sanzioni_no_riduz:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        veic_interessi_no_riduz:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        veic_totale_no_riduz:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        veic_num_mensilita_ridotte:
+           type: integer
+           format: int32
+        veic_data_evento:
+           type: string
+           format: date
+        cod_tipo_comunicazione:
+           type: string
+        cod_stato_pratica:
+           type: string
+        desc_stato_pratica:
+           type: string
+        dovuto_rimorchiabilita:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        id_stato_spedizione:
+           type: integer
+           format: int64
+        rinotifica_id_stato:
+           type: integer
+           format: int64
+        rinotifica_data_ricalc_interessi:
+           type: string
+           format: date
+        id_cod_elab:
+           type: integer
+           format: int64
+        causale_sospensione:
+           type: object
+           $ref: '#/definitions/CausaleSospensioneVO'
+        esito_notifica:
+           type: string
+        is_ruolo_EQ:
+           type: boolean
+        descrizione_ruolo_EQ:
+           type: string
+        ugu_ver:
+           type: string
+           format: date
+        ugu_pag:
+           type: string
+           format: date
+        pec:
+           type: string
+        fonte_riferimento_pec:
+           type: string
+        cd_fonte_riferimento_pec:
+           type: integer
+           format: int64
+        id_stato_invio:
+           type: integer
+           format: int64
+        id_stato_indirizzo:
+           type: integer
+           format: int64
+        iuv:
+           type: string
+        aux:
+           type: string
+        cod:
+           type: string
+        codice_iden_ente:
+           type: string
+        stato_mdp:
+           type: integer
+           format: int32
+        descrizione_errore:
+           type: string
+        dovuto_spese_rac:
+           type: object
+           $ref: '#/definitions/ValutaVO'
+        emiss_co2:
+           type: string
+        data_inst_gpl:
+           type: string
+        flag_rim:
+           type: string
+        flag_sosp:
+           type: string
+        cod_categoria:
+           type: string
+        id_veicolo:
+           type: integer
+           format: int64
+        id_proprietario:
+           type: integer
+           format: int64
+        ingiunzione_piano_rata:
+           type: string
+        data_pagamento_ingiunzione:
+           type: string
+           format: date
+        data_acquisizione_pagamento_ingiunzione:
+           type: string
+           format: date
+  
+  AvvisoAccertamentoEnteVO:
+   type: object   
+   description: avviso accertamento ente
+   properties:
+      id_avviso_accertamento_ente:
+         type: integer
+         format: int64
+      id_ente:
+         type: integer
+         format: int64
+      anno_accertamento:
+         type: integer
+         format: int32
+      tipo_avviso_accertamento:
+        type: object
+        $ref: '#/definitions/TipoAvvisoAccertamentoVO'
+      data_elaborazione:
+         type: string
+         format: date
+  
+           
+  TipoVeicoloVO:
+    type: object
+    description: Tipo Veicolo
+    properties:
+      decodifica:
+        type: object
+        $ref: '#/definitions/DecodificaVO'    
+        
+  DecodificaVO:
+    type: object
+    description: Decodifica
+    properties:
+      idDecodifica:
+        type: integer
+        format: int64
+      descrizione:
+        type: string
+      codice:
+        type: string        
+  
+  StatoAccertamentoVO:
+   type: object   
+   description: stato in cui versa l'accertamento
+   properties:
+      decodifica:
+        type: object
+        $ref: '#/definitions/DecodificaVO'            
+  
+  
+  TipoAvvisoAccertamentoVO:
+   type: object   
+   description: tipo  avviso accertamento
+   properties:
+      decodifica:
+        type: object
+        $ref: '#/definitions/DecodificaVO'
+  
+  TipoPeriodicitaVO:
+   type: object   
+   description: tipo periodicita
+   properties:
+      decodifica:
+        type: object
+        $ref: '#/definitions/DecodificaVO'                 
+  
+  SottoCausaleChiusuraVO:
+   type: object   
+   description: sotto causale chiusura
+   properties:
+      id_sotto_causale_chiusura:
+         type: integer
+         format: int64
+      id_causale_chiusura:
+         type: integer
+         format: int64
+      descrizione:
+         type: string  
+  
+  CausaleSospensioneVO:
+   type: object   
+   description: causale sospensione
+   properties:
+      decodifica:
+        type: object
+        $ref: '#/definitions/DecodificaVO'
+  
+  
+  CausaleChiusuraVO:
+   type: object   
+   description: causale chiusura
+   properties:
+      decodifica:
+        type: object
+        $ref: '#/definitions/DecodificaVO'  
+  
+   
+  TipoIrregAccertamentoVO:
+     type: object   
+     description: Tipo Irreg accertamento
+     properties:
+      decodifica:
+        type: object
+        $ref: '#/definitions/DecodificaVO'    
+  
+  ValutaVO:
+   type: object   
+   description: valuta
+   properties:
+      importo:
+         type: number
+         format: double
+      divisa:
+           type: object
+           $ref: '#/definitions/DivisaVO'
+           
+  DivisaVO:
+   type: object   
+   description: divisa
+   properties:
+      decodifica:
+        type: object
+        $ref: '#/definitions/DecodificaVO'           
+  
+  
+  
+  GenericResponse:
+    type: object
+    description: Risposta di un servizio generico
+    properties:
+      message:
+        type: string
+        description: Contiene il messaggio eventuale del servizio chiamato
+        example: 'Servizio ha risposto correttamente'
+  ErrorDto:
+    type: object
+    description: Rappresenta l'errore restituito da servizio
+    properties:
+      status:
+        type: integer
+        description: status http restituito
+        example: '500, 400, ecc'
+      code:
+        type: string
+        description: code http restituito
+        example: 'Internal server error, ecc'
+      description:
+        type: string
+        description: la descrizione dell'errore
+        example: 'Internal server error, ecc'
+      errorDetails:
+        type: array
+        description: i dettagli errore
+        items:
+          $ref: '#/definitions/ErrorDetail'
+  ErrorDetail:
+    type: object
+    description: rappresenta il dettaglio errore restituito in caso di errori di validazione sui campi di input
+    properties:
+      field:
+        type: string
+        description: il nome del campo per cui è falita la validazione
+        example: 'name, surname'
+      error:
+        type: string
+        description: l'errore di validazione effettivo
+        example: 'campo obbligatorio, ecc'
+      description:
+        type: string
+        description: la descrizione dell'errore
+        example: 'Internal server error, ecc'
+# Added by API Auto Mocking Plugin
+basePath: /andreafontanelli/staavvisisrv/1.0.0
+schemes:
+ - https

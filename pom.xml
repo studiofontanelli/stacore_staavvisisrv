@@ -112,10 +112,10 @@
 		<csi.lib.version>1.4.6</csi.lib.version>
 		<coop-diag.version>1.2.1</coop-diag.version>
 		
-		
+		<!-- 
 		<staonsrv-staonsrv.client>3.27.0</staonsrv-staonsrv.client>
 		<staonsrv-staonutil.client>3.21.0</staonsrv-staonutil.client>
-
+		 -->	
 		<!-- EHCACHE -->
 		<ehcache.version>2.9.0</ehcache.version>
 

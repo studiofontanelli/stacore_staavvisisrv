@@ -55,7 +55,237 @@
 	</bean>
 	 
 
-
+	<bean id="dataDictionary"
+		class="it.csi.stacore.staavvisisrv.util.DataDictionary">
+		<property name="tipoContributoDictionary">
+			<map>
+				<entry key="TASSA_NON_DOVUTA" value="1" />
+				<entry key="INTERESSI_SANZIONI_NON_DOVUTA" value="2" />
+				<entry key="CONTRIBUTO_SU_IMPORTO_POSITIVO" value="3" />
+				<entry key="CONTRIBUTO_SU_IMPORTO_NEGATIVO" value="4" />
+				<entry key="SANZIONI_NON_DOVUTA" value="5" />
+			</map>
+		</property>		
+		<property name="contributoDictionary">
+			<map>
+				<entry key="MOTIVAZIONE_RIMBORSO"  value="CONTRIBUTO PER RIMBORSO" />
+				<entry key="MOTIVAZIONE_STORNO_RIMBORSO" value="CONTRIBUTO PER STORNO RIMBORSO" />
+				<entry key="MOTIVAZIONE_CREAZIONE_CREDITO"   value="CONTRIBUTO PER CREAZIONE CREDITO" />
+				<entry key="MOTIVAZIONE_EROGAZIONE_CREDITO" value="CONTRIBUTO PER EROGAZIONE CREDITO" />
+				<entry key="MOTIVAZIONE_STORNO_CREDITO" value="CONTRIBUTO PER STORNO CREDITO" />
+				<entry key="MOTIVAZIONE_STORNO_PER_CHIUSURA_CREDITO" value="CONTRIBUTO PER CHIUSURA CREDITO" />
+				<entry key="MOTIVAZIONE_EROGAZIONE_BONUS"  value="CONTRIBUTO PER EROGAZIONE BONUS" />				
+				<entry key="MOTIVAZIONE_EROGAZIONE_CREDITO_POSITIVO_CALCOLO_COMPENSATO"  value="CONTRIBUTO POSITIVO PER EROGAZIONE CREDITO CALCOLO COMPENSATO" />
+				<entry key="MOTIVAZIONE_EROGAZIONE_CREDITO_NEGATIVO_CALCOLO_COMPENSATO"  value="CONTRIBUTO NEGATIVO PER EROGAZIONE CREDITO CALCOLO COMPENSATO" />
+				<entry key="MOTIVAZIONE_EROGAZIONE_CREDITO_SANZIONI_INTERESSI_NON_DOVUTE"  value="CONTRIBUTO POSITIVO PER SANZIONI ED INTERESSI NON DOVUTE" />
+				<entry key="MOTIVAZIONE_EROGAZIONE_CREDITO_SANZIONI_NON_DOVUTE"  value="CONTRIBUTO POSITIVO PER SANZIONI NON DOVUTE" />
+				<entry key="CODICE_CONTRIBUTO_TASSA_NON_DOVUTA"  value="CONTRIBUTO PER EROGAZIONE BONUS" />
+				<entry key="MOTIVAZIONE_EROGAZIONE_BONUS"  value="1" />
+				<entry key="CODICE_CONTRIBUTO_SANZIONI_ED_INTERESSI_NON_DOVUTI"  value="2" />
+				<entry key="CODICE_CONTRIBUTO_SU_IMPORTO_POSITIVO"  value="3" />
+				<entry key="CODICE_CONTRIBUTO_SU_IMPORTO_NEGATIVO"  value="4" />
+				<entry key="CODICE_CONTRIBUTO_SANZIONI_NON_DOVUTE"  value="5" />
+			</map>
+		</property>
+		<property name="posizioneDictionary">
+			<map>
+				<entry key="STATO_APERTA"  value="A" />
+				<entry key="STATO_CHIUSA" value="C" />
+			</map>
+		</property>
+		<property name="tipoIrregAccertamentoDictionary">
+			<map>
+				<entry key="COD_VERSAMENTO_MANCANTE"  value="VM" />
+				<entry key="COD_VERSAMENTO_INSUFF" value="TI" />
+				<entry key="COD_VERSAMENTO_INSUFF_RITARDATO"   value="TE" />
+				<entry key="COD_VERSAMENTO_RITARDATO" value="TR" />
+			</map>
+		</property>
+		<property name="statoAccertamentoDictionary">
+			<map>
+				<entry key="ID_STATO_PRATICA_DA_INOLTRARE"  value="1" />
+				<entry key="ID_STATO_PRATICA_INOLTRATA" value="2" />
+				<entry key="ID_STATO_PRATICA_CHIUSA"   value="3" />
+				<entry key="ID_STATO_PRATICA_ISCRITTA_A_RUOLO" value="4" />
+				<entry key="ID_STATO_PRATICA_RATEIZZATA" value="5" />
+				<entry key="ID_STATO_PRATICA_SOSPESA" value="6" />
+			</map>
+		</property>
+		<property name="tipoVeicoloDictionary">
+			<map>
+				<entry key="A"  value="A" />
+				<entry key="M" value="M" />
+				<entry key="R"   value="R" />
+				<entry key="C" value="C" />
+				<entry key="Q" value="Q" />
+				<entry key="PA" value="PA" />
+				<entry key="PM" value="PM" />
+				<entry key="PR" value="PR" />
+				<entry key="PC" value="PC" />
+				<entry key="PQ" value="PQ" />
+				<entry key="PS" value="PS" />
+				<entry key="MF" value="MF" />
+			</map>
+		</property>
+		<property name="fonteDictionary">
+			<map>
+				<entry key="CODICE_DTT"  value="DTT" />
+				<entry key="CODICE_PRA" value="PRA" />
+				<entry key="CODICE_RIV"   value="RIV" />
+				<entry key="CODICE_CICLOMOTORE" value="C" />
+				<entry key="CODICE_SGATA" value="SGATA" />
+				<entry key="CODICE_POSTE" value="POSTE" />
+				<entry key="CODICE_RISC" value="RISC" />
+				<entry key="CODICE_REG" value="REG" />
+				<entry key="CODICE_NN" value="NN" />
+			</map>
+		</property>
+		<property name="tipoAgevolazioneDictionary">
+			<map>
+				<entry key="SOSPENSIONE"  value="0" />
+				<entry key="ESENZIONE_PRESIDENTE_DELLA_REPUBBLICA" value="1" />
+				<entry key="ESENZIONE_AUTOSCAFO_ADIBITO_A_PESCA"   value="2" />
+				<entry key="ESENZIONE_VEICOLO_HANDICAP" value="3" />
+				<entry key="ESENZIONE_VEICOLO_STORICO" value="4" />
+				<entry key="PERDITA_POSSESSO_PER_FURTO" value="5" />
+				<entry key="PERDITA_POSSESSO_PROVVEDIMENTO_GIUDIZIARIO" value="6" />
+				<entry key="AUTOBUS_ALISCAFO_SERVIZIO_POSTALE" value="7" />
+				<entry key="AUTOCARRI_AUTOSCAFI_ESTINZIONE_INCENDI" value="8" />				
+				<entry key="TRASPORTO_PERSONE_PER_CURE_MEDICHE" value="9" />
+				<entry key="SOSPENSIONE_PER_FALLIMENTO" value="10" />
+				<entry key="SOSPENSIONE_EREDITA_GIACENTE" value="11" />
+				<entry key="DEAMBULAZIONE_INVALIDI" value="A" />
+				<entry key="TEMPORANEA_ESPORTAZIONE" value="B" />
+				<entry key="AGENTI_DIPLOMATICI_CONSOLARI" value="C" />
+				<entry key="ESENZIONI_PER_ECOINCENTIVI" value="D" />
+				<entry key="VEICOLI_ONLUS" value="E" />				
+				<entry key="LR_22_2007_ART_11_INSTALLAZIONE_IMPIANTO_GAS" value="N" />
+				<entry key="LR_23_2003_ART_5_LETT_A" value="O" />
+				<entry key="LR_23_2003_ART_5_LETT_B_PROTEZIONE_CIVILE" value="P" />
+				<entry key="LR_23_2003_ART_5_LETT_B_ESTINZIONE_INCENDI" value="Q" />
+				<entry key="LR_23_2003_ART_5_LETT_C" value="R" />
+				<entry key="LR_23_2003_ART_5_LETT_D_AUTOBUS_PUBBLICO_DI_LINEA" value="S" />
+				<entry key="LR_23_2003_ART_5_LETT_E_AMBULANZE_E_ASSIMILATI" value="T" />
+				<entry key="LR_23_2003_ART_5_LETT_F_RIFIUTI" value="U" />
+				<entry key="LR_23_2003_ART_5_LETT_G_ELETTRICI" value="V" />				
+				<entry key="LR_23_2003_ART_5_LETT_G_GPL_E_METANO" value="W" />
+				<entry key="LR_23_2003_ART_5_LETT_H_ORGANIZZ_VOLUNTARIATO" value="X" />
+				<entry key="LR_23_2003_ART_5_LETT_H_COOPERATIVE_SOCIALI" value="Y" />
+				<entry key="LR_23_2003_ART_5_LETT_H_IPAB" value="Z" />
+				<entry key="PATENTE_SPECIALE" value="M" />
+				<entry key="B_POWER" value="67" />				
+				<entry key="GPL_METANO_ELETTRICI_ESCLUSIVI" value="68" />
+				<entry key="IBRIDI" value="71" />
+				<entry key="ESENZIONE_ESTINZIONE_INCENDI" value="74" />
+				<entry key="ESENZIONE_AUTOBUS_IN_SERVIZIO_DI_LINEA" value="75" />
+				<entry key="PATENTE_SPECIALE" value="M" />
+				<entry key="ESENZIONE_AMBULANZE" value="76" />
+				<entry key="ESENZIONE_ATTI_AL_CARICO_SCARICO" value="77" />
+			</map>
+		</property>
+		<property name="destinazioneVeicoloDictionary">
+			<map>
+				<entry key="CODICE_AUTOVEICOLO_IN_SERVIZIO_PUBBLICO_DI_LINEA_INTEGRATIVO"  value="7" />
+				<entry key="CODICE_AUTOVEICOLO_USO_ESCLUSIVO_DI_POLIZIA" value="8" />
+				<entry key="CODICE_AUTOVETTURA_PER_TRASPORTO_DI_PERSONE"   value="A" />
+				<entry key="CODICE_AUTOBUS_PER_TRASPORTO_DI_PERSONE" value="B" />
+				<entry key="CODICE_AUTOCARRO_PER_TRASPORTO_DI_COSE" value="C" />
+				<entry key="CODICE_AUTOCARAVAN" value="I" />
+				<entry key="CODICE_AUTOVEICOLO_PER_USO_SPECIALE" value="L" />
+				<entry key="CODICE_TRAS_SPECIFICO_PERSONE_PART_CONDIZIONI" value="O" />
+				<entry key="CODICE_AUTOVEICOLO_TRASPORTO_PROMISCUO_PERSONE_COSE" value="P" />				
+				<entry key="CODICE_TRATTORE_STRADALE_PER_RIMORCHIO" value="S" />
+				<entry key="CODICE_TRATTORE_PER_SEMIRIMORCHIO" value="T" />
+				<entry key="CODICE_AUTOVEICOLO_PER_TRASPORTO_SPECIFICO" value="V" />
+				<entry key="CODICE_QUADRICICLO_PER_TRASP_DI_PERSONE" value="3" />
+				<entry key="CODICE_QUADRICICLO_PER_TRASP_DI_COSE" value="4" />
+				<entry key="CODICE_QUADRICICLO_PER_USO_SPECIALE" value="5" />
+				<entry key="CODICE_QUADRICICLO_TRASP_SPECIFICO" value="6" />
+				<entry key="CODICE_MOTOVEICOLO_USO_ESCLUSIVO_DI_POLIZIA" value="9" />				
+				<entry key="CODICE_TRICICLO_PER_TRASPORTO_PROMISCUO" value="D" />
+				<entry key="CODICE_TRICICLO_PER_USO_SPECIALE" value="F" />
+				<entry key="CODICE_TRICICLO_PER_TRASPORTO_SPECIFICO" value="G" />
+				<entry key="CODICE_MOTOCICLO_PER_TRASPORTO_PERSONE" value="M" />
+				<entry key="CODICE_TRICICLO_PER_TRASPORTO_COSE" value="N" />
+				<entry key="CODICE_TRICICLO_PER_TRASPORTO_DI_PERSONE" value="Z" />
+				<entry key="CODICE_SEMIRIMORCHIO_PER_TRASPORTO_SPECIFICO" value="E" />
+				<entry key="CODICE_SEMIRIMORCHIO_PER_TRASPORTO_COSE" value="H" />
+				<entry key="CODICE_RIMORCHIO_PER_TRASPORTO_ATTREZZATURE_TURISTICHE_E_SPORTIVE" value="J" />				
+				<entry key="CODICE_RIMORCHIO_PER_TRASPORTI_SPECIFICI" value="K" />
+				<entry key="CODICE_SEMIRIMORCHIO_PER_TRASPORTO_PERSONE" value="Q" />
+				<entry key="CODICE_RIMORCHIO_PER_TRASPORTO_COSE" value="R" />
+				<entry key="CODICE_CARAVAN" value="U" />
+				<entry key="CODICE_RIMORCHIO_PER_TRASPORTO_PERSONE" value="W" />
+				<entry key="CODICE_RIMORCHIO_PER_USO_SPECIALE" value="X" />				
+				<entry key="CODICE_SEMIRIMORCHIO_PER_USO_SPECIALE" value="Y" />
+			</map>
+		</property>
+		<property name="usoVeicoloDictionary">
+			<map>
+				<entry key="CODICE_PROPRIO"  value="0" />
+				<entry key="CODICE_TERZI_DA_NOLEGGIO_CON_CONDUC" value="1" />
+				<entry key="CODICE_TERZI_DA_LOCARE_SENZA_CONDUC"   value="2" />
+				<entry key="CODICE_DI_TERZI" value="3" />
+				<entry key="CODICE_PROPRIO_4" value="4" />
+				<entry key="CODICE_PROPRIO_5" value="5" />
+				<entry key="CODICE_DI_TERZI_CON_AUTORIZZAZIONI_VINCOLATE" value="6" />
+				<entry key="CODICE_DI_TERZI_CON_AUTORIZZAZIONE_LIBERA" value="7" />
+				<entry key="CODICE_USO_SPECIALE" value="8" />				
+				<entry key="CODICE_PRIV_LOCAZIONE_FAC_COMPERA" value="9" />
+			</map>
+		</property>
+		<property name="carrozzeriaDictionary">
+			<map>
+				<entry key="CODICE_CARRELLO_TRASPORTO_VEICOLI_FERROVIARI"  value="C1" />
+				<entry key="CODICE_RIMORCHIO_TRASPORTO_IMBARCAZIONI" value="C2" />
+				<entry key="CODICE_AUTOVETTURA_SCUOLA_GUIDA"   value="C3" />
+				<entry key="CODICE_AUTOVEICOLO_TRASPORTO_LATTE" value="C4" />
+				<entry key="CODICE_AUTOVEICOLO_TRASPORTO_CARNI_MACELLATE" value="C5" />
+				<entry key="CODICE_AUTOVEICOLO_RSU" value="C6" />
+				<entry key="CODICE_AUTOVEICOLO_TRASPORTO_GENERI_MONOPOLIO" value="C7" />
+				<entry key="CODICE_AUTOVEICOLO_BOTTE_VUOTATURA_POZZI_NERI" value="C8" />
+				<entry key="CODICE_AMBULANZA" value="C9" />				
+				<entry key="CODICE_AUTOVEICOLO_ESTINZIONE_INCENDI" value="C10" />
+				<entry key="CODICE_AUTOCARRO_KW" value="F0" />
+			</map>
+		</property>
+		<property name="combustibileDictionary">
+			<map>
+				<entry key="BENZ"  value="B" />
+				<entry key="CODICE_B_OLIO" value="B-O" />
+				<entry key="CODICE_B_WANK"   value="B-W" />
+				<entry key="CODICE_ELETTR" value="ELE" />
+				<entry key="CODICE_GASOL" value="G" />
+				<entry key="CODICE_GPL" value="GP" />
+				<entry key="CODICE_B_GPL" value="GPL" />
+				<entry key="CODICE_B_MET" value="M" />
+				<entry key="CODICE_METANO" value="ME" />				
+				<entry key="CODICE_MISCELA" value="MSC" />
+				<entry key="CODICE_PETROLIO" value="P" />				
+				<entry key="CODICE_BENZINA_ELETTRICO" value="B-E" />
+				<entry key="CODICE_GASOL_ELETTRICO" value="G-E" />
+				<entry key="CODICE_BENZINA_ETANOLO" value="BET" />
+				<entry key="CODICE_GASOLIO_METANO" value="G-M" />
+				<entry key="CODICE_GASOLIO_GPL" value="G-G" />
+				<entry key="CODICE_GASOLIO_GAS_NATURALE_LIQUEFATTO" value="GML" />				
+				<entry key="CODICE_GAS_NATURALE_LIQUEFATTO" value="GNL" />
+				<entry key="CODICE_IDROGENO" value="H" />
+				<entry key="CODICE_IDROGENO_ELETTRICO" value="H-E" />
+			</map>
+		</property>
+		<property name="categoriaEuroDictionary">
+			<map>
+				<entry key="CODICE_NON_DEFINITO"  value="NN" />
+				<entry key="CODICE_EURO_0" value="E0" />
+				<entry key="CODICE_EURO_1" value="E1" />
+				<entry key="CODICE_EURO_2" value="E2" />
+				<entry key="CODICE_EURO_3" value="E3" />
+				<entry key="CODICE_EURO_4" value="E4" />
+				<entry key="CODICE_EURO_5" value="E5" />
+				<entry key="CODICE_EURO_6" value="E6" />
+			</map>
+		</property>
+	</bean>
 
 
 
