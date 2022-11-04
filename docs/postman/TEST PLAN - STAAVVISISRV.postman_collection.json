@@ -1,0 +1,99 @@
+{
+	"info": {
+		"_postman_id": "9cb873ed-3869-4dcf-8576-e2c41ba4dfc0",
+		"name": "TEST PLAN - STAAVVISISRV",
+		"description": "API REST Componente staavvisisrv",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3823498"
+	},
+	"item": [
+		{
+			"name": "TST01 -TEST RESOURCES",
+			"item": [
+				{
+					"name": "TST01A - TEST RESOURCE",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{localhost}}/staavvisisrv/api/test/resources",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"staavvisisrv",
+								"api",
+								"test",
+								"resources"
+							]
+						},
+						"description": "Metodo di ricerca dati avviso di accertamento"
+					},
+					"response": []
+				}
+			],
+			"description": "Test del servizio di test resource. Serve solo per verificarne il funzionamento iniziale.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "http://127.0.0.1:8080",
+			"type": "string"
+		},
+		{
+			"key": "dev",
+			"value": "http://dev-applogic.reteunitaria.piemonte.it",
+			"type": "string"
+		}
+	]
+}

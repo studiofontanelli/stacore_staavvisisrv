@@ -1,0 +1,182 @@
+<porta-delegata name="PD_ServizioDatiTrasversali">
+	<services>
+		<service name="ServizioDatiTrasversali"
+			public-interface-class="it.csi.stacore.staon.interfaceCSI.ServizioDatiTrasversaliInterface">
+			<operations>
+				<operation name="findComuneByIdNazione" type="synch-call">
+					<param-list>
+						<param name="idNazione" type="java.lang.Long" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.staon.business.bo.tavoleTrasversali.Comune" />
+				</operation>
+
+				<operation name="findComuneRegioneCorrente"
+					type="synch-call">
+					<param-list>
+						<param name="comune" type="java.lang.String" />
+						<param name="dataRiferimento" type="java.util.Date" />
+					</param-list>
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="findComune" type="synch-call">
+					<param-list>
+						<param name="comune" type="java.lang.String" />
+						<param name="dataRiferimento" type="java.util.Date" />
+					</param-list>
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="findComune" type="synch-call">
+					<param-list>
+						<param name="comune" type="java.lang.String" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.staon.business.bo.tavoleTrasversali.Comune" />
+				</operation>
+
+				<operation name="findAttivita" type="synch-call">
+					<param-list>
+						<param name="comune" type="java.lang.String" />
+					</param-list>
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="findComune" type="synch-call">
+					<param-list>
+						<param name="idComune" type="java.lang.Long" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.staon.business.bo.tavoleTrasversali.Comune" />
+				</operation>
+
+				<operation name="findAttivita" type="synch-call">
+					<param-list>
+						<param name="idAttivita" type="java.lang.Long" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.staon.business.bo.tavoleTrasversali.Attivita" />
+				</operation>
+
+				<operation name="findNazione" type="synch-call">
+					<param-list>
+						<param name="nazione" type="java.lang.String" />
+						<param name="dataRiferimento" type="java.util.Date" />
+					</param-list>
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="findNazione" type="synch-call">
+					<param-list>
+						<param name="dataRiferimento" type="java.util.Date" />
+					</param-list>
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="findNazione" type="synch-call">
+					<param-list>
+						<param name="idNazione" type="java.lang.Long" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.staon.business.bo.tavoleTrasversali.Nazione" />
+				</operation>
+
+				<operation name="findCodiceIstatNazione" type="synch-call">
+					<param-list>
+						<param name="idNazione" type="java.lang.Long" />
+					</param-list>
+					<ret-val type="java.lang.String" />
+				</operation>
+
+				<operation name="findNaturaGiuridica" type="synch-call">
+					<param-list />
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="findNaturaGiuridica" type="synch-call">
+					<param-list>
+						<param name="idNaturaGiuridica" type="java.lang.Long" />
+					</param-list>
+					<ret-val
+						type="it.csi.stacore.staon.business.bo.tavoleTrasversali.NaturaGiuridica" />
+				</operation>
+
+				<operation name="getProvinceItaliane" type="synch-call">
+					<param-list />
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="getProvincePiemontesi" type="synch-call">
+					<param-list />
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="getComuniBySiglaProvincia"
+					type="synch-call">
+					<param-list>
+						<param name="siglaProvincia" type="java.lang.String" />
+					</param-list>
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="findNazioni" type="synch-call">
+					<param-list>
+					</param-list>
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="findProvince" type="synch-call">
+					<param-list>
+					</param-list>
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="findComuni" type="synch-call">
+					<param-list>
+						<param name="codProvincia" type="java.lang.String" />
+					</param-list>
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="findComuni" type="synch-call">
+					<param-list>
+						<param name="codProvincia" type="java.lang.String" />
+						<param name="riferimento" type="java.util.Date" />
+					</param-list>
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="findMessaggi" type="synch-call">
+					<ret-val type="java.util.List" />
+				</operation>
+
+				<operation name="findMessaggioById" type="synch-call">
+					<param-list>
+						<param name="idMessaggio" type="java.lang.Integer" />
+					</param-list>
+					<ret-val type="it.csi.stacore.staon.business.bo.Messaggio" />
+				</operation>
+
+			</operations>
+		</service>
+	</services>
+	<config>
+		<url-pa>multi://localhost</url-pa>
+		<pluggable-pd-list
+			chooser-class="it.csi.csi.porte.FixedDelegateChooser">
+			<pluggable-pd name="taurde"
+				class="it.csi.csi.porte.ejb20.PortaDelegataEJB"
+				url-pa="/ejb/stacore/staon/PA_ServizioDatiTrasversali">
+
+				<properties>
+					<property name="java.naming.provider.url" value="${staon.java.naming.provider.url}" />
+					<property name="java.naming.factory.initial" value="org.jnp.interfaces.NamingContextFactory" />
+					
+				</properties>
+
+			</pluggable-pd>
+		</pluggable-pd-list>
+		<queue-manager />
+	</config>
+</porta-delegata>

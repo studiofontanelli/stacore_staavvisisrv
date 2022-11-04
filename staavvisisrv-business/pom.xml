@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>it.csi.stacore</groupId>
+		<artifactId>staavvisisrv</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>staavvisisrv-business</artifactId>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>staavvisisrv-dto</artifactId>
+			<version>${version}</version>
+		</dependency>
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>staavvisisrv-integration</artifactId>
+			<version>${version}</version>
+		</dependency>
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>staavvisisrv-util</artifactId>
+			<version>${version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${springframework.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${springframework.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${springframework.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>javax.annotation</groupId>
+			<artifactId>javax.annotation-api</artifactId>
+			<version>${javax.annotation.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${org.aspectj.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>it.csi.coopdiag</groupId>
+			<artifactId>coop-diag</artifactId>
+			<version>${coop-diag.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.util</groupId>
+			<artifactId>util-perf</artifactId>
+			<version>1.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>${dozer.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>staonsrv-staonsrv-client</artifactId>
+			<version>${staonsrv-staonsrv.client}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- EHCache -->
+       	<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>${ehcache.version}</version>
+		</dependency>
+
+	</dependencies>
+
+</project>

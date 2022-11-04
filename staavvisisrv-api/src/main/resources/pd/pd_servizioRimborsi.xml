@@ -1,0 +1,65 @@
+<porta-delegata name="PD_ServizioRimborsi">
+  <services>
+    <service name="ServizioRimborsi" public-interface-class="it.csi.stacore.staon.interfaceCSI.ServizioRimborsiInterface">
+      <operations>
+
+        <operation name="isAlive" type="synch-call" >
+          <param-list>
+          </param-list>
+          <ret-val type="boolean"/>
+        </operation>
+
+        <operation name="testResources" type="synch-call" >
+          <param-list>
+          </param-list>
+          <ret-val type="boolean"/>
+        </operation>
+
+        <operation name="calcolaRimborso" type="synch-call" >
+          <param-list>
+            <param name="datiCalcolo" type="it.csi.stacore.staon.business.bo.DatiCalcolo" />
+            <param name="utente" type="it.csi.stacore.staon.business.bo.utente.Utente" />
+          </param-list>
+          <ret-val type="it.csi.stacore.staon.business.bo.EsitoCalcoloRimborso"/>
+        </operation>
+
+        <operation name="calcolaRimborsoNonGoduto" type="synch-call" >
+          <param-list>
+            <param name="datiCalcolo" type="it.csi.stacore.staon.business.bo.DatiCalcolo" />
+            <param name="utente" type="it.csi.stacore.staon.business.bo.utente.Utente" />
+          </param-list>
+          <ret-val type="it.csi.stacore.staon.business.bo.EsitoCalcoloRimborso"/>
+        </operation>
+
+        <operation name="calcolaInteressiSanzioni" type="synch-call" >
+          <param-list>
+            <param name="ultimoGiornoUtile" type="java.util.Date" />
+            <param name="dataRiferimento" type="java.util.Date" />
+            <param name="importo" type="it.csi.stacore.staon.business.bo.Valuta" />
+            <param name="utente" type="it.csi.stacore.staon.business.bo.utente.Utente" />
+          </param-list>
+          <ret-val type="it.csi.stacore.staon.business.bo.Importo"/>
+        </operation>
+        
+      </operations>
+    </service>
+  </services>
+  <config>
+    <url-pa>multi://localhost</url-pa>
+    <pluggable-pd-list chooser-class="it.csi.csi.porte.FixedDelegateChooser">
+      <pluggable-pd 
+      	name="it.csi.stareg.starimon.ServizioRimborsi" 
+      	class="it.csi.csi.porte.ejb20.PortaDelegataEJB" 
+      	url-pa="/ejb/stacore/staon/PA_ServizioRimborsi">
+
+        <properties>
+          <property name="java.naming.provider.url" value="${staon.java.naming.provider.url}" />
+          <property name="java.naming.factory.initial" value="org.jnp.interfaces.NamingContextFactory" />
+		  
+        </properties>
+
+      </pluggable-pd>
+    </pluggable-pd-list>
+    <queue-manager />
+  </config>
+</porta-delegata>
