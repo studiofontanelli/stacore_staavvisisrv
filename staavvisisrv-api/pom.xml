@@ -1,0 +1,427 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>it.csi.stacore</groupId>
+		<artifactId>staavvisisrv</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>staavvisisrv-api</artifactId>
+	
+	<packaging>war</packaging>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>staavvisisrv-util</artifactId>
+			<version>${version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>staavvisisrv-business</artifactId>
+			<version>${version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>staavvisisrv-dto</artifactId>
+			<version>${version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-spring</artifactId>
+			<version>${resteasy.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${springframework.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${springframework.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${springframework.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${springframework.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-binding</artifactId>
+			<version>${spring-binding.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${springframework.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${org.aspectj.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-annotations</artifactId>
+			<version>${swagger-annotation.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>io.swagger</groupId>
+			<artifactId>swagger-jaxrs</artifactId>
+			<version>${swagger-jaxrs.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${servlet-api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>${resteasy.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-multipart-provider</artifactId>
+			<version>${resteasy.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		
+		
+		<dependency>
+			<groupId>it.csi.csi</groupId>
+			<artifactId>csi-core</artifactId>
+			<version>${csi.lib.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.csi</groupId>
+			<artifactId>csi-stadapter</artifactId>
+			<version>${csi.lib.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.csi</groupId>
+			<artifactId>csi-ejb</artifactId>
+			<version>${csi.lib.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.csi</groupId>
+			<artifactId>csi-rmi</artifactId>
+			<version>${csi.lib.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.csi</groupId>
+			<artifactId>csi-apachesoap</artifactId>
+			<version>${csi.lib.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>staonsrv-staonsrv-client</artifactId>
+			<version>${staonsrv-staonsrv.client}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>staonsrv-staonutil-client</artifactId>
+			<version>${staonsrv-staonutil.client}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis-jaxrpc</artifactId>
+			<version>${axis.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>${dozer.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.csi.coopdiag</groupId>
+			<artifactId>coop-diag</artifactId>
+			<version>${coop-diag.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>it.csi.util</groupId>
+			<artifactId>util-perf</artifactId>
+			<version>1.0.1</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>it.csi.iridev2</groupId>
+			<artifactId>iridev2-pep-base-wsnmsf</artifactId>
+			<version>1.0.0</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis</artifactId>
+			<version>${axis.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.apache.axis</groupId>
+			<artifactId>axis-jaxrpc</artifactId>
+			<version>${axis.version}</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-discovery</groupId>
+			<artifactId>commons-discovery</artifactId>
+			<version>${commons-discovery.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-digester3</artifactId>
+			<version>${commons-digester3.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>${xstream.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.jboss.client</groupId>
+			<artifactId>jbossall-client</artifactId>
+			<version>4.2.3.GA</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>${cglib.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<!-- 
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>${cglib-nodep.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		 -->
+		 
+		 <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>${ehcache.version}</version>
+            <scope>compile</scope>
+        </dependency>
+		 
+	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>macfonta</id>
+			<build>
+				<filters>
+					<filter>buildfiles/${property.file.name.source}</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>local</id>
+			<build>
+				<filters>
+					<filter>buildfiles/${property.file.name.source}</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>dev-rp-01</id>
+			<build>
+				<filters>
+					<filter>buildfiles/${property.file.name.source}</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>tst-rp-01</id>
+			<build>
+				<filters>
+					<filter>buildfiles/${property.file.name.source}</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>coll-rp-01</id>
+			<build>
+				<filters>
+					<filter>buildfiles/${property.file.name.source}</filter>
+				</filters>
+			</build>
+		</profile>
+		<profile>
+			<id>prod-rp-01</id>
+			<build>
+				<filters>
+					<filter>buildfiles/${property.file.name.source}</filter>
+				</filters>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<phase>test</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<tasks>
+								<echo>Using ${property.file.name.source}</echo>
+								<copy file="buildfiles/${property.file.name.source}"
+									tofile="${project.build.outputDirectory}/environment.properties" />
+							</tasks>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven.war.plugin.version}</version>
+				<configuration>
+					<!-- Exclude JCL and LOG4J since all logging should go through SLF4J. 
+						Note that we're excluding log4j-<version>.jar but keeping log4j-over-slf4j-<version>.jar -->
+					<packagingExcludes>
+						WEB-INF/**/*-ds.xml
+						WEB-INF/lib/commons-logging-*.jar,
+						WEB-INF/lib/servlet-api-*.jar,
+						WEB-INF/lib/maven-*.jar,
+						WEB-INF/lib/aopalliance-*.jar
+						%regex[WEB-INF/lib/log4j-(?!over-slf4j).*.jar]
+					</packagingExcludes>
+					<webResources>
+						<resource>
+							<filtering>true</filtering>
+							<directory>src/main/webapp</directory>
+							<includes>
+								<include>**/web.xml</include>
+							</includes>
+						</resource>
+					</webResources>
+					<warSourceDirectory>src/main/webapp</warSourceDirectory>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
