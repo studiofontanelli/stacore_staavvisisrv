@@ -26,6 +26,14 @@
 			<artifactId>staavvisisrv-util</artifactId>
 			<version>${version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>stacoresrv-dto</artifactId>
+			<version>${stacoresrv.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
 
 		<dependency>
 			<groupId>org.springframework</groupId>

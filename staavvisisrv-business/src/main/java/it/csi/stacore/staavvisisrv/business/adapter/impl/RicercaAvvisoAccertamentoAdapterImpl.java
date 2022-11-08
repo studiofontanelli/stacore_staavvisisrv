@@ -12,6 +12,8 @@ import it.csi.stacore.staavvisisrv.api.dto.RicercaAvvisoAccertamentoVO;
 import it.csi.stacore.staavvisisrv.api.dto.StatoAccertamentoVO;
 import it.csi.stacore.staavvisisrv.api.dto.TipoVeicoloVO;
 import it.csi.stacore.staavvisisrv.business.adapter.RicercaAvvisoAccertamentoAdapter;
+import it.csi.stacore.staavvisisrv.business.adapter.TipoVeicoloAdapter;
+import it.csi.stacore.staavvisisrv.business.helper.DecodificheHelper;
 import it.csi.stacore.staavvisisrv.integration.bo.avvisoaccertamento.StatoAccertamento;
 
 import it.csi.stacore.staavvisisrv.integration.bo.id.IdDecodifica;
@@ -41,6 +43,12 @@ public class RicercaAvvisoAccertamentoAdapterImpl extends CommonDtoAdapter<Ricer
 		return applicationContext;
 	}	 
 	
+	@Autowired
+	private DecodificheHelper decodificheHelper;
+	
+	@Autowired
+	private TipoVeicoloAdapter tipoVeicoloAdapter;
+	
 	@Override
 	public RicercaAvvisoAccertamento convertTo(RicercaAvvisoAccertamentoVO t) throws DtoConversionException {
 		final String method = "convertTo";
@@ -48,23 +56,11 @@ public class RicercaAvvisoAccertamentoAdapterImpl extends CommonDtoAdapter<Ricer
 		try {			
 			
 			if(t.getCodiceTipoVeicolo()!=null) {
-				//Gestione TipoVeicolo
-				//String tipoVeicoloDescrizione = t.getTipoVeicolo().getDecodifica().getDescrizione();			
-				//String tipoVeicoloCode = dataDictionary.getValueByMapAndDescription(dataDictionary.getTipoVeicoloDictionary(), tipoVeicoloDescrizione);
 				
-				/* AF DA MOFIFICARE
-				TipoVeicolo tipoVeicolo = GenericCreatorDecodifica.createIstanzeForBO(TipoVeicolo.class,
-																				      serialVersionUID,
-																				      tipoVeicoloDescrizione,
-																				      tipoVeicoloCode);			
-				*/
-				
-				
-				TipoVeicolo tipoVeicolo = new TipoVeicolo(new IdDecodifica(-1), t.getCodiceTipoVeicolo(), "-");
-				
+				TipoVeicoloVO tipoVeicoloVO = decodificheHelper.findTipiVeicoloByCodice(t.getCodiceTipoVeicolo());
+				TipoVeicolo tipoVeicolo = tipoVeicoloAdapter.convertTo(tipoVeicoloVO);
 				output.setTipoVeicolo(tipoVeicolo);
 				
-				throw new DtoConversionException(" DA RIVEDERE");
 			}			
 			
 			if(t.getCodiceStatoAccertamento()!=null) {

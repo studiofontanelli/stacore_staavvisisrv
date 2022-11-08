@@ -7,17 +7,20 @@ import org.springframework.stereotype.Service;
 public class Environment {
 
 
-	//@Value("${gms_service_endpoint_url}")
-	private String gmsEndpoint;
+	
+	
+	@Value("${stacoresrv_service_endpoint_url}")
+	private String stacoresrvEndpoint;
 
-	public String getGmsEndpoint() {
-		return gmsEndpoint;
+	public String getStacoresrvEndpoint() {
+		return stacoresrvEndpoint;
 	}
 
-	public void setGmsEndpoint(String gmsEndpoint) {
-		this.gmsEndpoint = gmsEndpoint;
+	public void setStacoresrvEndpoint(String stacoresrvEndpoint) {
+		this.stacoresrvEndpoint = stacoresrvEndpoint;
 	}
 
+	
 	
 
 

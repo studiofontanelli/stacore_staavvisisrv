@@ -4,10 +4,9 @@ package it.csi.stacore.staavvisisrv.business.cache;
 
 import java.io.InputStream;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 
-import it.csi.stacore.staavvisisrv.util.Constants;
+import it.csi.stacore.staavvisisrv.business.helper.impl.CommonHelperImpl;
 import it.csi.stacore.staavvisisrv.util.Tracer;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
@@ -16,13 +15,11 @@ import net.sf.ehcache.Element;
 import net.sf.ehcache.ObjectExistsException;
 import net.sf.ehcache.config.CacheConfiguration;
 
-public class CacheService {
 
-	private static final String LOGGER_PREFIX = Constants.APPLICATION_CODE + ".business";
-	protected final static Logger LOG = LoggerFactory.getLogger(LOGGER_PREFIX);
-	
 
-	public final static String CACHE_ANAGRAFICHE =   "cache-anagrafiche-stacore-staavvisisrv";
+public class CacheService extends CommonHelperImpl {
+
+public final static String CACHE_ANAGRAFICHE =   "cache-anagrafiche-stacore-staavvisisrv";
 
 
 	private CacheManager cacheManager = null;
@@ -30,7 +27,8 @@ public class CacheService {
 	private boolean useCache = true ;
 
 	private boolean instrumentation = true ;
-
+	
+	
 	public boolean isUseCache() {
 		return useCache;
 	}
@@ -39,7 +37,10 @@ public class CacheService {
 		this.useCache = useCache;
 	}
 
-
+	public String createCacheKey(Class clazz, String method, Object... params) {
+		return clazz.getName() + "." + method + "." + StringUtils.arrayToDelimitedString(params, "_");
+		
+	}
 	public void create() throws Exception{
 		String method = "create";
 
@@ -196,5 +197,7 @@ public class CacheService {
 		}
 		return cacheManager.getEhcache(cacheName);
 	}
+
+	
 
 }

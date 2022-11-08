@@ -8,7 +8,7 @@
 		<version>1.0.0</version>
 	</parent>
 	<artifactId>staavvisisrv-api</artifactId>
-	
+
 	<packaging>war</packaging>
 
 	<dependencies>
@@ -18,19 +18,26 @@
 			<artifactId>staavvisisrv-util</artifactId>
 			<version>${version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>it.csi.stacore</groupId>
 			<artifactId>staavvisisrv-business</artifactId>
 			<version>${version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>it.csi.stacore</groupId>
 			<artifactId>staavvisisrv-dto</artifactId>
 			<version>${version}</version>
 		</dependency>
-		
+
+
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>stacoresrv-dto</artifactId>
+			<version>${stacoresrv.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-spring</artifactId>
@@ -78,7 +85,7 @@
 			<version>${spring-binding.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
@@ -150,9 +157,9 @@
 			<version>${resteasy.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		
-		
-		
+
+
+
 		<dependency>
 			<groupId>it.csi.csi</groupId>
 			<artifactId>csi-core</artifactId>
@@ -187,28 +194,28 @@
 			<version>${csi.lib.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.axis</groupId>
 			<artifactId>axis-jaxrpc</artifactId>
 			<version>${axis.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>net.sf.dozer</groupId>
 			<artifactId>dozer</artifactId>
 			<version>${dozer.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>${commons-lang3.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>it.csi.coopdiag</groupId>
 			<artifactId>coop-diag</artifactId>
@@ -222,15 +229,15 @@
 			<version>1.0.1</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>it.csi.iridev2</groupId>
 			<artifactId>iridev2-pep-base-wsnmsf</artifactId>
 			<version>1.0.0</version>
 			<scope>compile</scope>
 		</dependency>
-		
-		
+
+
 		<dependency>
 			<groupId>org.apache.axis</groupId>
 			<artifactId>axis</artifactId>
@@ -252,53 +259,52 @@
 			<version>${commons-discovery.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-digester3</artifactId>
 			<version>${commons-digester3.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
-		
+
+
 		<dependency>
 			<groupId>xstream</groupId>
 			<artifactId>xstream</artifactId>
 			<version>${xstream.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		
-		
+
+
 		<dependency>
 			<groupId>org.jboss.client</groupId>
 			<artifactId>jbossall-client</artifactId>
 			<version>4.2.3.GA</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
 			<version>${cglib.version}</version>
 			<scope>compile</scope>
 		</dependency>
+
 		
-		<!-- 
 		<dependency>
-			<groupId>cglib</groupId>
-			<artifactId>cglib-nodep</artifactId>
-			<version>${cglib-nodep.version}</version>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>${ehcache.version}</version>
 			<scope>compile</scope>
 		</dependency>
-		 -->
-		 
-		 <dependency>
-            <groupId>net.sf.ehcache</groupId>
-            <artifactId>ehcache</artifactId>
-            <version>${ehcache.version}</version>
-            <scope>compile</scope>
-        </dependency>
-		 
+		
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${fasterxml-jackson-version}</version>
+		    <scope>compile</scope>
+		</dependency>
+
 	</dependencies>
 
 	<profiles>

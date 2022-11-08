@@ -112,6 +112,9 @@
 		<csi.lib.version>1.4.6</csi.lib.version>
 		<coop-diag.version>1.2.1</coop-diag.version>
 		
+		<stacoresrv.version>1.0.0</stacoresrv.version>
+		
+		
 		<!-- 
 		<staonsrv-staonsrv.client>3.27.0</staonsrv-staonsrv.client>
 		<staonsrv-staonutil.client>3.21.0</staonsrv-staonutil.client>
@@ -157,7 +160,8 @@
 		<slf4j.version>1.7.2</slf4j.version>
 		<junit.version>4.12</junit.version>
 
-
+		<fasterxml-jackson-version>2.13.4</fasterxml-jackson-version>
+		
 		<!-- resteasy -->
 		<resteasy.version>3.7.0.Final</resteasy.version>
 

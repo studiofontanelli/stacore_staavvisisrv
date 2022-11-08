@@ -16,6 +16,13 @@
 			<artifactId>staavvisisrv-util</artifactId>
 			<version>${version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>it.csi.stacore</groupId>
+			<artifactId>stacoresrv-dto</artifactId>
+			<version>${stacoresrv.version}</version>
+			<scope>provided</scope>
+		</dependency>
 
 		
 		<dependency>
@@ -208,6 +215,13 @@
 			<artifactId>jbossall-client</artifactId>
 			<version>4.2.3.GA</version>
 			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>${fasterxml-jackson-version}</version>
+		    <scope>provided</scope>
 		</dependency>
 
 	</dependencies>
